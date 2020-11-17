@@ -7,6 +7,7 @@ namespace moment2
     {
         static void Main(string[] args)
         {
+            Start:
             WriteLine("Ange ditt födelsedatum för att få reda på vilken veckodag du är född!");
             WriteLine("Format: YYYY-MM-DD, skriv in här och tryck på enter!");
             string inputDate = ReadLine();
@@ -16,6 +17,7 @@ namespace moment2
             {
                 WriteLine($"Det går inte att konvertera {inputDate}, till ett datum!");
                 WriteLine("Prova igen med följande format. yyyy-mm-dd");
+                goto Start;
             }
             // harvest data fråm dateValue           
             int year = dateValue.Year;
@@ -32,7 +34,7 @@ namespace moment2
             //convert dacade and year to int32
             int century = Int32.Parse(first);
             int year2 = Int32.Parse(last);
-   
+ 
        
             // test for leap years and adjust values if so
             if (month<3)
